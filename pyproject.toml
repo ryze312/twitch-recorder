@@ -1,0 +1,103 @@
+[project]
+name = "twitch-recorder"
+version = "0.9.0"
+license = "AGPL-3.0-only"
+authors = [{ name = "Ryze" }]
+description = "Twitch application for automatically downloading streams"
+readme = "README.md"
+
+classifiers = [
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3",
+    "Environment :: Console",
+
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+
+    "Topic :: Internet",
+    "Topic :: Multimedia :: Video",
+
+    "Development Status :: 4 - Beta",
+]
+
+# TwitchIO doesn't support versions above 3.13 well
+# https://twitchio.dev/en/latest/getting-started/installing.html#installing
+requires-python = ">= 3.11, < 3.14"
+dependencies = [
+    "pyserde[toml] >= 0.25.1",
+    "twitchio >= 3.1.0",
+    "yt-dlp >= 2025.11.12",
+]
+
+[project.urls]
+homepage = "https://code.thishorsie.rocks/ryze/twitch-recorder"
+source = "https://code.thishorsie.rocks/ryze/twitch-recorder"
+github = "https://github.com/ryze312/twitch-recorder"
+
+[project.scripts]
+twitch-recorder = "twitch_recorder.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.9.0, <0.10.0"]
+build-backend = "uv_build"
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+
+[[tool.mypy.overrides]]
+module = "yt_dlp.*"
+ignore_missing_imports = true
+
+[tool.ruff]
+src = [ "src" ]
+include = [
+    "src",
+    "pyproject.toml",
+]
+
+[tool.ruff.lint]
+select = [
+    "ERA", # eradicate
+
+    # flake8
+    "S",
+    "BLE",
+    "B",
+    "A",
+    "COM",
+    "C4",
+    "LOG",
+    "G",
+    "INP",
+    "PIE",
+    "T20",
+    "RSE",
+    "RET",
+    "SLF",
+    "SIM",
+    "TID",
+    "PTH",
+
+    "I", # isort
+    "N", # pep8-naming
+    "C90", # mccabe
+
+    # pycodestyle
+    "E",
+    "W",
+
+    "F", # pyflakes
+    "PL", # pylint
+    "UP", # pyupgrade
+    "FURB", # refurb
+    "RUF", # ruff
+    "TRY", # tryceratops
+]
+
+ignore = [
+    # We use logging.error to report recoverable errors
+    # from captured exceptions in a user-friendly manner
+    "TRY400"
+]

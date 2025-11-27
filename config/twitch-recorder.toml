@@ -1,0 +1,25 @@
+[downloader]
+# Output template in yt-dlp format
+# Internally sets yt-dlp option outtmpl.default
+output_template = "[%(timestamp>%Y-%m-%d %H:%M:%S)s] %(description)s.%(ext)s"
+output_path = "recordings"
+
+# You can set custom options for yt-dlp
+# [downloader.yt_dlp_options]
+# format = "bestvideo[height<=720]+bestaudio"
+
+[twitch]
+# Set your application details here
+# client_id = ""
+# client_secret = ""
+# token = ""
+
+# Add users to watch
+users = []
+
+# You can set log levels for the recorder itself, TwitchIO and yt-dlp
+# Possible values: none, critical, error, warning, info, debug
+[log]
+recorder = "info"
+twitch_io = "warning"
+yt_dlp = "info"
