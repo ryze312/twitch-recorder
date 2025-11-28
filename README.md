@@ -2,11 +2,11 @@
 
 # Twitch-Recorder
 
-<img src="./assets/demo.png">
+![twitch-recorder](./assets/demo.png)
 
 </div>
 
-Twitch application for automatically downloading streams as they go live.
+Twitch application for automatically downloading streams as they go live.<br/>
 Particularly useful for archiving streams that have disabled VODs.
 
 # Configuration
