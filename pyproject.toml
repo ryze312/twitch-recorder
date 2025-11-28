@@ -31,9 +31,9 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "https://code.thishorsie.rocks/ryze/twitch-recorder"
-source = "https://code.thishorsie.rocks/ryze/twitch-recorder"
-github = "https://github.com/ryze312/twitch-recorder"
+Homepage = "https://code.thishorsie.rocks/ryze/twitch-recorder"
+Repository = "https://code.thishorsie.rocks/ryze/twitch-recorder"
+"Repository (GitHub)" = "https://github.com/ryze312/twitch-recorder"
 
 [project.scripts]
 twitch-recorder = "twitch_recorder.__main__:main"
