@@ -2,6 +2,8 @@
 
 # Twitch-Recorder
 
+<img src="./assets/demo.png">
+
 </div>
 
 Twitch application for automatically downloading streams as they go live.
