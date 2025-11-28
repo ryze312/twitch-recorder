@@ -17,7 +17,7 @@ On Linux and macOS, configuration file can be placed at the following paths, in 
 2. `$HOME/.config/twitch-recorder.toml`
 3. `/etc/twitch-recorder.toml`
 
-On Windows, the file should be placed at `%APPDATA/twitch-recorder/twitch-recorder.toml`
+On Windows, the file should be placed at `%APPDATA%/twitch-recorder/twitch-recorder.toml`
 
 You can also specify path to the configuration file by setting environment variable `TWITCH_RECORDER_CONFIG` or with command line flags `-c` and `--config`.
 
