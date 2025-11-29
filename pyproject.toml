@@ -51,7 +51,7 @@ module = "yt_dlp.*"
 ignore_missing_imports = true
 
 [tool.ruff]
-src = [ "src" ]
+src = ["src"]
 include = [
     "src",
     "pyproject.toml",
