@@ -28,7 +28,7 @@ class LogLevel(Enum):
             return
 
         # Amusing way to make exhaustiveness check work
-        # without having to repeat logging.setLevel for each case
+        # without having to repeat logger.setLevel for each case
         def get_level() -> int:
             match self:
                 case LogLevel.CRITICAL:
