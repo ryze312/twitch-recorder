@@ -3,11 +3,47 @@
 # Twitch-Recorder
 
 ![twitch-recorder](./assets/demo.png)
-
 </div>
+
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/twitch-recorder?style=flat-square&logo=python)
+![PyPI - Version](https://img.shields.io/pypi/v/twitch-recorder?style=flat-square&logo=pypi&logoColor=white)
+![PyPI - License](https://img.shields.io/pypi/l/twitch-recorder?style=flat-square)
+
 
 Twitch application for automatically downloading streams as they go live.<br/>
 Particularly useful for archiving streams that have disabled VODs.
+
+# Installation
+twitch-recorder can be installed from PyPI and Nix/NixOS as a package or configured as a service with the module from [stackpkgs](https://code.thishorsie.rocks/ryze/stackpkgs).<br/>
+After installing you should be able to run twitch-recorder from the terminal.
+
+## PyPI
+```sh
+pip install twitch-recorder
+```
+
+## Nix/NixOS
+```nix
+# Install just the package
+environment.systemPackages = [
+    pkgs.stackpkgs.twitch-recorder
+];
+
+# Or configure the service
+services.twitch-recorder = {
+    enable = true;
+
+    # You can use environment file to safely store client details
+    environmentFile = "/var/lib/secrets/twitch-recorder.env";
+    settings = {
+        twitch = {
+            client_id = "$CLIENT_ID";
+            client_secret = "$CLIENT_SECRET";
+            token = "$TOKEN";
+        };
+    };
+};
+```
 
 # Configuration
 twitch-recorder is configured using TOML, an example configuration file with defaults can be found [here](config/twitch-recorder.toml).
